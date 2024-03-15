@@ -1,0 +1,38 @@
+
+.tittle-div {
+    max-width: 30vh;
+    max-height: 10vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-div {
+    max-width: 30vh;
+    max-height: 60vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.keyboard {
+    background-color: lightgrey;
+    display: grid;
+    grid-row: 1fr, 1fr, 1fr;
+}
+
+.first-division, .second-division, .third-division {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.key {
+    height: 20px;
+    width: 20px;
+    background-color: gray;
+    padding: 0.5vmin;
+    padding: 2vmax;
+    border: 1px;
+    margin: 2px;
+
+}
