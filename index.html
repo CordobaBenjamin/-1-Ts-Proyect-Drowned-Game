@@ -4,66 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Drowned</title>
+    <title>The Hangman</title>
 </head>
 <body>
 
-    <div class="tittle-div"> 
-        <h2 class="tittle"> Gana o Pierde </h2>
-        <h3 class="player-two"> Jugador 2 </h3>
-    </div>
-
-    <div class="main-div">
-
-        <div class="drowned-draw">
-            <img src="./src/Drowned-start.png">
+    <div class="grid-middle"> 
+        <div class="tittle-div"> 
+            <h2 class="tittle"> Ganar o perder </h2>
+            <h3 class="player-two"> Jugador 2 </h3>
         </div>
 
-        <div class="correct-word">
-            <h3>_  _  _  _  _  _  _  _  _  _  _  _  _  _</h3>
+        <div class="main-div">
+
+            <div class="hangman-draw">
+                <img src="./src/Hangman-start.png">
+            </div>
+
+            <div class="correct-word">
+                <h3>_  _  _  _  _  _  _  _  _  _  _  _  _  _</h3>
+            </div>
+
         </div>
+
+        <section class="keyboard">
+        <div class="first-division">
+                <h4 class="key" id="Q">Q</h4>
+                <h4 class="key" id="W">W</h4>
+                <h4 class="key" id="E">E</h4>
+                <h4 class="key" id="R">R</h4>
+                <h4 class="key" id="T">T</h4>
+                <h4 class="key" id="Y">Y</h4>
+                <h4 class="key" id="U">U</h4>
+                <h4 class="key" id="I">I</h4>
+                <h4 class="key" id="O">O</h4>
+                <h4 class="key" id="P">P</h4>
+        </div> 
         
-    </div>
-
-    <section class="keyboard">
-       <div class="first-division">
-            <h4 class="key">Q</h4>
-            <h4 class="key">W</h4>
-            <h4 class="key">E</h4>
-            <h4 class="key">R</h4>
-            <h4 class="key">T</h4>
-            <h4 class="key">Y</h4>
-            <h4 class="key">U</h4>
-            <h4 class="key">I</h4>
-            <h4 class="key">O</h4>
-            <h4 class="key">P</h4>
-       </div> 
-      
-       <div class="second-division">     
-            <h4 class="key">A</h4>
-            <h4 class="key">S</h4>
-            <h4 class="key">D</h4>
-            <h4 class="key">F</h4>
-            <h4 class="key">G</h4>
-            <h4 class="key">H</h4>
-            <h4 class="key">J</h4>
-            <h4 class="key">K</h4>
-            <h4 class="key">L</h4>
-            <h4 class="key">Z</h4>
-        </div>
-        
-        <div class="third-division">       
+        <div class="second-division">     
+                <h4 class="key" id="A">A</h4>
+                <h4 class="key" id="S">S</h4>
+                <h4 class="key" id="D">D</h4>
+                <h4 class="key" id="F">F</h4>
+                <h4 class="key" id="G">G</h4>
+                <h4 class="key" id="H">H</h4>
+                <h4 class="key" id="J">J</h4>
+                <h4 class="key" id="K">K</h4>
+                <h4 class="key" id="L">L</h4>
+                <h4 class="key" id="Z">Z</h4>
+            </div>
             
-            <h4 class="key">X</h4>
-            <h4 class="key">C</h4>
-            <h4 class="key">V</h4>
-            <h4 class="key">B</h4>
-            <h4 class="key">N</h4>
-            <h4 class="key">M</h4>
-        </div>
-      
-    </section>
-   
+            <div class="third-division">       
+                
+                <h4 class="key" id="X">X</h4>
+                <h4 class="key" id="C">C</h4>
+                <h4 class="key" id="V">V</h4>
+                <h4 class="key" id="B">B</h4>
+                <h4 class="key" id="N">N</h4>
+                <h4 class="key" id="M">M</h4>
+            </div>
+        
+        </section>
+    </div>
     
     <script src="main.js"></script>
 </body>

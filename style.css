@@ -1,22 +1,51 @@
+body {
+    display: grid;
+    grid-template-columns: 1fr 20fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.grid-middle {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
 
 .tittle-div {
-    max-width: 30vh;
+    max-width: 25vh;
     max-height: 10vh;
     margin-left: auto;
     margin-right: auto;
 }
 
+.tittle {
+    max-width: 15vh;
+    max-height: 2vh;
+    min-width: 20vh;
+    min-height: 1vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.player-two {
+    max-width: 5vh;
+    max-height: 2vh;
+    min-width: 9vh;
+    min-height: 1vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .main-div {
-    max-width: 30vh;
+    max-width: 21vh;
     max-height: 60vh;
     margin-left: auto;
     margin-right: auto;
 }
 
 .keyboard {
-    background-color: lightgrey;
+    background-color: beige;
     display: grid;
     grid-row: 1fr, 1fr, 1fr;
+    min-width: 10vh;
 }
 
 .first-division, .second-division, .third-division {
@@ -27,11 +56,11 @@
 }
 
 .key {
-    height: 20px;
-    width: 20px;
+    height: 1vmin;
+    width: 1vmin;
     background-color: gray;
     padding: 0.5vmin;
-    padding: 2vmax;
+    padding: 1vmax;
     border: 1px;
     margin: 2px;
 
