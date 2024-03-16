@@ -1,12 +1,15 @@
-// webpack.config.js
 const path = require('path');
 
 module.exports = {
-  entry: './ts-module/app.ts', // Archivo de entrada TypeScript
+  mode: "development",
+  entry: {
+    app: './ts-module/app.ts', // Archivo de entrada TypeScript "app.ts"
+    keyboardFunction: './ts-module/keyboard-Function.ts', // Archivo de entrada TypeScript "keyboardFunction.ts"
+    keyboardData: './ts-module/keyboardData.ts' // Archivo de entrada TypeScript "keyboardData.ts"
+  },
   output: {
     path: path.resolve(__dirname, 'dist'), // Directorio de salida
-    filename: 'bundle.js', // Nombre del archivo de salida
-    
+    filename: '[name].js', // Nombre del archivo de salida (se generará uno por cada entrada)
   },
   devtool: "source-map",
   resolve: {

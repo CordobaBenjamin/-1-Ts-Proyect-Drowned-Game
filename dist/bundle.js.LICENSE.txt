@@ -1,1 +1,0 @@
-//! Le asigno a cada letra su igual en orden QWERTY y un nodo en el DOM
