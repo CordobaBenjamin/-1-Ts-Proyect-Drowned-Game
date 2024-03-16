@@ -2,14 +2,13 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./main.js":
-/*!*****************!*\
-  !*** ./main.js ***!
-  \*****************/
+/***/ "./ts-module/app.ts":
+/*!**************************!*\
+  !*** ./ts-module/app.ts ***!
+  \**************************/
 /***/ ((module, exports, __webpack_require__) => {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_LOCAL_MODULE_0__, __WEBPACK_LOCAL_MODULE_0__exports;var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
-console.log("Hola");
 !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports], __WEBPACK_LOCAL_MODULE_0__ = (function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", ({ value: true }));
@@ -41,14 +40,17 @@ console.log("Hola");
     exports.key24 = document.getElementById("B");
     exports.key25 = document.getElementById("N");
     exports.key26 = document.getElementById("M");
+    console.log(exports.key2);
 }).apply(__WEBPACK_LOCAL_MODULE_0__exports = {}, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_LOCAL_MODULE_0__ === undefined && (__WEBPACK_LOCAL_MODULE_0__ = __WEBPACK_LOCAL_MODULE_0__exports));
 !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __WEBPACK_LOCAL_MODULE_0__], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, keyboardData_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", ({ value: true }));
-    console.log(keyboardData_1.key12);
+    keyboardData_1.key26 === null || keyboardData_1.key26 === void 0 ? void 0 : keyboardData_1.key26.addEventListener("click", (event) => {
+        keyboardData_1.key26 && (keyboardData_1.key26.className = "key1");
+    });
 }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-//# sourceMappingURL=main.js.map
+
 
 /***/ })
 
@@ -82,8 +84,8 @@ console.log("Hola");
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	// This entry module used 'module' so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__("./main.js");
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
+/******/ 	var __webpack_exports__ = __webpack_require__("./ts-module/app.ts");
 /******/ 	
 /******/ })()
 ;

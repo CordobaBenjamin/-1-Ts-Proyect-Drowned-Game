@@ -2,7 +2,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './main.js', // Archivo de entrada TypeScript
+  entry: './ts-module/app.ts', // Archivo de entrada TypeScript
   output: {
     path: path.resolve(__dirname, 'dist'), // Directorio de salida
     filename: 'bundle.js', // Nombre del archivo de salida

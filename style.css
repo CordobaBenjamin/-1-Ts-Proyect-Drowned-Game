@@ -65,3 +65,13 @@ body {
     margin: 2px;
 
 }
+
+.key1 {
+    height: 1vmin;
+    width: 1vmin;
+    background-color: rgb(204, 9, 9);
+    padding: 0.5vmin;
+    padding: 1vmax;
+    border: 1px;
+    margin: 2px;
+}
