@@ -32,14 +32,35 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var _a;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const keyboardData = __importStar(__webpack_require__(/*! ./keyboardData */ "./ts-module/keyboardData.ts"));
-(_a = keyboardData.key2) === null || _a === void 0 ? void 0 : _a.addEventListener("click", (event) => {
-    keyboardData.key2 && (keyboardData.key2.className = "key1");
-});
-console.log("!Hola!");
-console.log(keyboardData.key5);
+let playerOneWord = ["Letter1", "Letter7", "Letter3", "Letter12", "Letter9"];
+let playerTwoWord = [];
+function checkForWin() {
+    if (playerOneWord.toString() === playerTwoWord.toString()) {
+        console.log("WIN");
+    }
+}
+const keyboardDataTyped = keyboardData;
+// Función auxiliar para acceder a las propiedades de keyboardData
+function getKey(keyBucle) {
+    const keyName = `key${keyBucle}`;
+    return keyboardDataTyped[keyName];
+}
+// Bucle para agregar los controladores de eventos
+for (let keyBucle = 1; keyBucle < 27; keyBucle++) {
+    const key = getKey(keyBucle);
+    if (key) {
+        key.addEventListener("click", (event) => {
+            console.log(key);
+            const letter = `Letter${keyBucle}`; // Definimos la constante `letter` como `Letter` seguido del número del bucle
+            playerTwoWord.push(letter); // Agregamos la constante `letter` al array `playerTwoWord`
+            checkForWin();
+        });
+    }
+}
+console.log(playerOneWord);
+console.log(playerTwoWord);
 
 
 /***/ }),
