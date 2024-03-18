@@ -1,8 +1,16 @@
+* {
+    font-family: "Delicious Handrawn", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
 body {
     display: grid;
     grid-template-columns: 1fr 20fr 1fr;
     grid-template-rows: 1fr;
 }
+
+
 
 .grid-middle {
     grid-column-start: 2;

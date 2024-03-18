@@ -1,0 +1,78 @@
+.body {
+    background-color: rgba(185, 50, 50, 0.616);
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+}
+
+
+* {
+    font-family: "Delicious Handrawn", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .mid-Div {
+    margin-left: auto;
+    margin-right: auto;
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+
+  .mainTittle {
+    width: 70vmin;
+    font-size: 10vmin;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+  }
+
+  .playerTittle {
+    color: rgb(78, 78, 199);
+    width: 15vmin;
+    font-size: 3vh;
+    margin-top: 0%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .text {
+    font-size: 4vh;
+  }
+
+  .inputWord {
+    font-size: 4vh;
+    width: 30vmin;
+    display: flex;
+    margin: auto;
+    border: 0;
+    border-bottom: 2px solid;
+    outline: 0;
+    background: transparent;
+  }
+
+ .buttonDiv {
+    margin-top: 15vmin;
+    margin-left: auto;
+    margin-right: auto;
+    width: 31vmin;
+ }
+
+  .startButton {
+    
+    cursor: pointer;
+    color: rgb(142, 212, 171);
+    border-color: rgb(14, 223, 14);
+    font-size: 2vh;
+    width: 30vmin;
+    height: 4vmin;
+    background-color: rgba(9, 116, 9, 0.26);
+    border: 1;
+    border-radius: 25%;
+  }
+
+  .startButton:hover {
+    scale: 1.02;
+    transition: 0.5s;
+    color: rgb(255, 255, 255);
+    /* font-size: 2.1vh; */
+  }

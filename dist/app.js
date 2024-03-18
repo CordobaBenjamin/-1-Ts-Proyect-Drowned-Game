@@ -2,6 +2,37 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./ts-module/CorrectWord-Function.ts":
+/*!*******************************************!*\
+  !*** ./ts-module/CorrectWord-Function.ts ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getInputLocalValue = void 0;
+let inputData = document.getElementById("playerOneCorrectWord");
+console.log(inputData);
+let startGame = document.getElementById("sumbitStartGame");
+function nextPage() {
+    let valor = inputData.value;
+    localStorage.setItem("Input Value", valor);
+    window.location.href = 'index.html'; // Redirige a la siguiente página
+}
+startGame.addEventListener("click", (event) => {
+    // Llama a nextPage() cuando ocurra el evento click en inputData
+    nextPage();
+});
+function getInputLocalValue() {
+    let inputLocalValue = localStorage.getItem("Input Value");
+    console.log(inputLocalValue);
+    return inputLocalValue;
+}
+exports.getInputLocalValue = getInputLocalValue;
+
+
+/***/ }),
+
 /***/ "./ts-module/app.ts":
 /*!**************************!*\
   !*** ./ts-module/app.ts ***!
@@ -34,11 +65,21 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const keyboardData = __importStar(__webpack_require__(/*! ./keyboardData */ "./ts-module/keyboardData.ts"));
+const CorrectWord_Function_1 = __webpack_require__(/*! ./CorrectWord-Function */ "./ts-module/CorrectWord-Function.ts");
+// Llamamos a la función para obtener el valor del localStorage
+let valorDelLocalStorage = (0, CorrectWord_Function_1.getInputLocalValue)();
+// Hacer algo con el valor obtenido
+console.log(valorDelLocalStorage);
+console.log("hola");
 let playerOneWord = ["Letter1", "Letter7", "Letter3", "Letter12", "Letter9"];
 let playerTwoWord = [];
+let lettersPlayerOneWord = playerOneWord.length;
+let lettersPlayerTwoWord = playerTwoWord.length;
+console.log(lettersPlayerOneWord);
+console.log(playerTwoWord);
 function checkForWin() {
     if (playerOneWord.toString() === playerTwoWord.toString()) {
-        console.log("WIN");
+        alert("WIN");
     }
 }
 const keyboardDataTyped = keyboardData;
@@ -59,8 +100,7 @@ for (let keyBucle = 1; keyBucle < 27; keyBucle++) {
         });
     }
 }
-console.log(playerOneWord);
-console.log(playerTwoWord);
+console.log(localStorage.getItem("Input Value"));
 
 
 /***/ }),

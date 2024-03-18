@@ -1,1 +1,0 @@
-{"version":3,"file":"nashe.js","mappings":";;;;;;;AAAA,OAAO,CAAC,GAAG,CAAC,MAAM,CAAC,CAAC","sources":["webpack://ahogado-proyecto/./ts-module/nashe.ts"],"sourcesContent":["console.log(\"hola\");\r\n"],"names":[],"sourceRoot":""}

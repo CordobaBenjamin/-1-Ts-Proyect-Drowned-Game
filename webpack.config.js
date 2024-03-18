@@ -3,9 +3,8 @@ const path = require('path');
 module.exports = {
   mode: "development",
   entry: {
-    nashe: "./ts-module/nashe.ts",
     app: './ts-module/app.ts', // Archivo de entrada TypeScript "app.ts"
-    keyboardFunction: './ts-module/keyboard-Function.ts', // Archivo de entrada TypeScript "keyboardFunction.ts"
+    correctWord: './ts-module/correctWord-Function.ts', // Archivo de entrada TypeScript "keyboardFunction.ts"
     keyboardData: './ts-module/keyboardData.ts' // Archivo de entrada TypeScript "keyboardData.ts"
   },
   output: {

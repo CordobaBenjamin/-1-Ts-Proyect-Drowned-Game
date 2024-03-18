@@ -1,15 +1,29 @@
 import * as keyboardData from "./keyboardData";
+import { getInputLocalValue } from './CorrectWord-Function';
+
+// Llamamos a la función para obtener el valor del localStorage
+let valorDelLocalStorage = getInputLocalValue();
+
+// Hacer algo con el valor obtenido
+console.log(valorDelLocalStorage);
+console.log("hola");
+
 
 let playerOneWord: string[] = ["Letter1", "Letter7", "Letter3", "Letter12", "Letter9"]
-
 let playerTwoWord: string[] = [];
 
-function checkForWin() {
-    if (playerOneWord.toString() === playerTwoWord.toString()) {
-        console.log("WIN");
-    }
-}
 
+let lettersPlayerOneWord = playerOneWord.length
+let lettersPlayerTwoWord = playerTwoWord.length
+console.log(lettersPlayerOneWord);
+console.log(playerTwoWord);
+
+
+function checkForWin () {  
+            if (playerOneWord.toString() === playerTwoWord.toString()) {
+                alert("WIN");
+        }   
+    }
 // Interfaz para describir la estructura de keyboardData
 interface KeyboardData {
     [key: string]: HTMLElement;
@@ -36,7 +50,6 @@ for (let keyBucle = 1; keyBucle < 27; keyBucle++) {
     }
 }
 
-console.log(playerOneWord);
-console.log(playerTwoWord);
+console.log(localStorage.getItem("Input Value"));
 
 
