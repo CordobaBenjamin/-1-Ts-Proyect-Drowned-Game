@@ -2,37 +2,6 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./ts-module/CorrectWord-Function.ts":
-/*!*******************************************!*\
-  !*** ./ts-module/CorrectWord-Function.ts ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.getInputLocalValue = void 0;
-let inputData = document.getElementById("playerOneCorrectWord");
-console.log(inputData);
-let startGame = document.getElementById("sumbitStartGame");
-function nextPage() {
-    let valor = inputData.value;
-    localStorage.setItem("Input Value", valor);
-    window.location.href = 'index.html'; // Redirige a la siguiente página
-}
-startGame.addEventListener("click", (event) => {
-    // Llama a nextPage() cuando ocurra el evento click en inputData
-    nextPage();
-});
-function getInputLocalValue() {
-    let inputLocalValue = localStorage.getItem("Input Value");
-    console.log(inputLocalValue);
-    return inputLocalValue;
-}
-exports.getInputLocalValue = getInputLocalValue;
-
-
-/***/ }),
-
 /***/ "./ts-module/app.ts":
 /*!**************************!*\
   !*** ./ts-module/app.ts ***!
@@ -65,24 +34,43 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const keyboardData = __importStar(__webpack_require__(/*! ./keyboardData */ "./ts-module/keyboardData.ts"));
-const CorrectWord_Function_1 = __webpack_require__(/*! ./CorrectWord-Function */ "./ts-module/CorrectWord-Function.ts");
-// Llamamos a la función para obtener el valor del localStorage
-let valorDelLocalStorage = (0, CorrectWord_Function_1.getInputLocalValue)();
-// Hacer algo con el valor obtenido
-console.log(valorDelLocalStorage);
-console.log("hola");
-let playerOneWord = ["Letter1", "Letter7", "Letter3", "Letter12", "Letter9"];
+let localStorageValue = localStorage.getItem("Input Value");
+let playerOneWord = [];
 let playerTwoWord = [];
+let playerOneLetters = [];
+let playerTwoLetters = [];
+if (localStorageValue !== null) {
+    // Para el primer jugador (palabra completa)
+    playerOneWord = localStorageValue.split("");
+    // Para el segundo jugador (letras únicas)
+    playerOneLetters = localStorageValue.split("").filter((value, index, self) => self.indexOf(value) === index);
+}
+console.log("Player One Word:", playerOneWord); // ["tele"]
+console.log("Player One Letters:", playerOneLetters); // ["t", "e", "l"]
+console.log("Player Two Word:", playerTwoWord); // []
+console.log("Player Two Letters:", playerTwoLetters); // []
 let lettersPlayerOneWord = playerOneWord.length;
 let lettersPlayerTwoWord = playerTwoWord.length;
 console.log(lettersPlayerOneWord);
-console.log(playerTwoWord);
+console.log(lettersPlayerTwoWord);
+for (let underScore = 0; underScore < lettersPlayerOneWord + 1; underScore++) {
+    if (document.getElementById("divPlace") !== null) {
+        document.getElementById("divPlace").innerHTML += `<h5 id='removeElement${underScore}'> .__. </h5>`;
+    }
+}
 function checkForWin() {
-    if (playerOneWord.toString() === playerTwoWord.toString()) {
+    if (playerOneLetters.toString() === playerTwoLetters.toString()) {
         alert("WIN");
     }
 }
 const keyboardDataTyped = keyboardData;
+function replaceUnderScore(letter, index) {
+    const elementId = `removeElement${index}`;
+    const element = document.getElementById(elementId);
+    if (element) {
+        element.innerHTML = `<h5>${letter}</h5>`;
+    }
+}
 // Función auxiliar para acceder a las propiedades de keyboardData
 function getKey(keyBucle) {
     const keyName = `key${keyBucle}`;
@@ -94,13 +82,12 @@ for (let keyBucle = 1; keyBucle < 27; keyBucle++) {
     if (key) {
         key.addEventListener("click", (event) => {
             console.log(key);
-            const letter = `Letter${keyBucle}`; // Definimos la constante `letter` como `Letter` seguido del número del bucle
-            playerTwoWord.push(letter); // Agregamos la constante `letter` al array `playerTwoWord`
+            const letter = key.innerHTML;
+            playerTwoLetters.push(letter); // Agregamos la constante `letter` al array `playerTwoWord` 
             checkForWin();
         });
     }
 }
-console.log(localStorage.getItem("Input Value"));
 
 
 /***/ }),

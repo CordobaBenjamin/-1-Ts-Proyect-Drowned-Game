@@ -1,22 +1,19 @@
-let inputData = document.getElementById("playerOneCorrectWord") as HTMLInputElement;
-console.log(inputData);
-
-let startGame = document.getElementById("sumbitStartGame") as HTMLInputElement
+document.addEventListener("DOMContentLoaded", function(event) {
+    let inputData = document.getElementById("playerOneCorrectWord") as HTMLInputElement;
 
 
-function nextPage() {
-    let valor: string = inputData.value ;
-    localStorage.setItem("Input Value", valor);
-    window.location.href = 'index.html'; // Redirige a la siguiente página
-}
+    let startGame = document.getElementById("sumbitStartGame") as HTMLInputElement
 
-startGame.addEventListener("click", (event) => {
-    // Llama a nextPage() cuando ocurra el evento click en inputData
-    nextPage();
+    function nextPage() {
+        let valor: string = inputData.value;
+        let upperValor:string = valor.toUpperCase()
+        localStorage.setItem("Input Value", upperValor);
+        window.location.href = 'index.html'; // Redirige a la siguiente página
+    }
+
+    startGame.addEventListener("click", (event) => {
+        // Llama a nextPage() cuando ocurra el evento click en inputData
+        nextPage();
+    });
 });
 
-export function getInputLocalValue(): string | null {
-    let inputLocalValue = localStorage.getItem("Input Value");
-    console.log(inputLocalValue);
-    return inputLocalValue;
-}
