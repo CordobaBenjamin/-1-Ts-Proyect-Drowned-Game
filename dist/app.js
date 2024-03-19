@@ -49,13 +49,36 @@ console.log("Player One Word:", playerOneWord); // ["tele"]
 console.log("Player One Letters:", playerOneLetters); // ["t", "e", "l"]
 console.log("Player Two Word:", playerTwoWord); // []
 console.log("Player Two Letters:", playerTwoLetters); // []
-let lettersPlayerOneWord = playerOneWord.length;
-let lettersPlayerTwoWord = playerTwoWord.length;
-console.log(lettersPlayerOneWord);
-console.log(lettersPlayerTwoWord);
-for (let underScore = 0; underScore < lettersPlayerOneWord + 1; underScore++) {
+let lenghtPlaterOneWord = playerOneLetters.length;
+let lenghtPlaterTwoWord = playerTwoLetters.length;
+console.log(lenghtPlaterOneWord);
+console.log(lenghtPlaterTwoWord);
+for (let underScore = 0; underScore < lenghtPlaterOneWord + 1; underScore++) {
     if (document.getElementById("divPlace") !== null) {
         document.getElementById("divPlace").innerHTML += `<h5 id='removeElement${underScore}'> .__. </h5>`;
+    }
+}
+function verifyLetterFunction(value) {
+    function booleanLetter(letra, array) {
+        for (let elemento of array) {
+            if (elemento === letra) {
+                return true;
+            }
+        }
+        return false;
+    }
+    if (booleanLetter(value, playerOneLetters)) {
+        console.log("esta la letra");
+    }
+    else {
+        console.log("no esta");
+        let contador = 0;
+        contador++;
+        if (contador < 6) {
+        }
+        else {
+            alert("Lose");
+        }
     }
 }
 function checkForWin() {
@@ -64,13 +87,6 @@ function checkForWin() {
     }
 }
 const keyboardDataTyped = keyboardData;
-function replaceUnderScore(letter, index) {
-    const elementId = `removeElement${index}`;
-    const element = document.getElementById(elementId);
-    if (element) {
-        element.innerHTML = `<h5>${letter}</h5>`;
-    }
-}
 // Función auxiliar para acceder a las propiedades de keyboardData
 function getKey(keyBucle) {
     const keyName = `key${keyBucle}`;
@@ -84,6 +100,7 @@ for (let keyBucle = 1; keyBucle < 27; keyBucle++) {
             console.log(key);
             const letter = key.innerHTML;
             playerTwoLetters.push(letter); // Agregamos la constante `letter` al array `playerTwoWord` 
+            verifyLetterFunction(letter);
             checkForWin();
         });
     }
