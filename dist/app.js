@@ -33,6 +33,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+//! Importe de las variables "key" (Para el teclado virtual).
 const keyboardData = __importStar(__webpack_require__(/*! ./keyboardData */ "./ts-module/keyboardData.ts"));
 let localStorageValue = localStorage.getItem("Input Value");
 let playerOneWord = [];
@@ -40,25 +41,31 @@ let playerTwoWord = [];
 let playerOneLetters = [];
 let playerTwoLetters = [];
 if (localStorageValue !== null) {
-    // Para el primer jugador (palabra completa)
+    //! Palabra completa que adivinar
     playerOneWord = localStorageValue.split("");
-    // Para el segundo jugador (letras únicas)
+    //! Letras necesarias para adivinar la palabra
     playerOneLetters = localStorageValue.split("").filter((value, index, self) => self.indexOf(value) === index);
 }
 console.log("Player One Word:", playerOneWord); // ["tele"]
 console.log("Player One Letters:", playerOneLetters); // ["t", "e", "l"]
-console.log("Player Two Word:", playerTwoWord); // []
-console.log("Player Two Letters:", playerTwoLetters); // []
-let lenghtPlaterOneWord = playerOneLetters.length;
-let lenghtPlaterTwoWord = playerTwoLetters.length;
-console.log(lenghtPlaterOneWord);
-console.log(lenghtPlaterTwoWord);
-for (let underScore = 0; underScore < lenghtPlaterOneWord + 1; underScore++) {
+// console.log("Player Two Word:", playerTwoWord); // []
+// console.log("Player Two Letters:", playerTwoLetters); // []
+//! Metodo para saber cuantas casillas ocupa la palabra.
+let lenghtPlayerOneWord = playerOneWord.length;
+let lenghtPlayerTwoWord = playerTwoWord.length;
+// console.log(lenghtPlayerOneWord);
+// console.log(lenghtPlayerTwoWord);
+//! Ciclo para crear las casillas (underscore) con los digitos de la palabra.
+for (let underScore = 0; underScore < lenghtPlayerOneWord; underScore++) {
     if (document.getElementById("divPlace") !== null) {
         document.getElementById("divPlace").innerHTML += `<h5 id='removeElement${underScore}'> .__. </h5>`;
     }
 }
+//! Contador para acumular cuantas veces se puede equivocar el jugador     
+let contador = 0;
+//! Funcion para crear las consecuencias de una letra correcta o invalida.
 function verifyLetterFunction(value) {
+    //! Funcion para verificar si la letra puesta por el jugador, es correcta o invalida.
     function booleanLetter(letra, array) {
         for (let elemento of array) {
             if (elemento === letra) {
@@ -67,37 +74,91 @@ function verifyLetterFunction(value) {
         }
         return false;
     }
+    //! Funcion creada para remplazar las casillas vacias (underscore) por las letras acertadas.
     if (booleanLetter(value, playerOneLetters)) {
-        console.log("esta la letra");
+        console.log(value);
+        String.prototype.indicesOf = function (character) {
+            const indices = [];
+            for (let i = 0; i < this.length; i++) {
+                if (this.charAt(i) === character) {
+                    indices.push(i);
+                }
+            }
+            return indices;
+        };
+        const correctWord = localStorageValue;
+        if (correctWord !== null) {
+            console.log(correctWord.indicesOf(`${value}`));
+        }
     }
     else {
-        console.log("no esta");
-        let contador = 0;
-        contador++;
-        if (contador < 6) {
+        //! Funcion creada para contar las veces que se equivoca el jugador, por cada equivocacion se refresca la pagina cambiando el dibujo del ahorcado.    
+        function addConter() {
+            var _a, _b, _c, _d, _e, _f;
+            console.log(value);
+            contador++;
+            if (contador < 6) {
+                switch (contador) {
+                    case 1:
+                        if (document.getElementById("newStep") !== null) {
+                            (_a = document.getElementById("removeStep")) === null || _a === void 0 ? void 0 : _a.remove();
+                            document.getElementById("newStep").innerHTML += `<img src="./src/step 0.png" class="stepsStyle" id="removeStep" >`;
+                        }
+                        break;
+                    case 2:
+                        if (document.getElementById("newStep") !== null) {
+                            (_b = document.getElementById("removeStep")) === null || _b === void 0 ? void 0 : _b.remove();
+                            document.getElementById("newStep").innerHTML += `<img src="./src/step 1.png" class="stepsStyle" id="removeStep">`;
+                        }
+                        break;
+                    case 3:
+                        if (document.getElementById("newStep") !== null) {
+                            (_c = document.getElementById("removeStep")) === null || _c === void 0 ? void 0 : _c.remove();
+                            document.getElementById("newStep").innerHTML += `<img src="./src/step 2.png" class="stepsStyle" id="removeStep">`;
+                        }
+                        break;
+                    case 4:
+                        if (document.getElementById("newStep") !== null) {
+                            (_d = document.getElementById("removeStep")) === null || _d === void 0 ? void 0 : _d.remove();
+                            document.getElementById("newStep").innerHTML += `<img src="./src/step 3.png" class="stepsStyle" id="removeStep">`;
+                        }
+                        break;
+                    case 5:
+                        if (document.getElementById("newStep") !== null) {
+                            (_e = document.getElementById("removeStep")) === null || _e === void 0 ? void 0 : _e.remove();
+                            document.getElementById("newStep").innerHTML += `<img src="./src/step 4.png" class="stepsStyle" id="removeStep">`;
+                        }
+                        break;
+                }
+            }
+            else {
+                if (document.getElementById("newStep") !== null) {
+                    (_f = document.getElementById("removeStep")) === null || _f === void 0 ? void 0 : _f.remove();
+                    document.getElementById("newStep").innerHTML += `<img src="./src/step 5.png" class="stepsStyle" id="removeStep">`;
+                }
+            }
         }
-        else {
-            alert("Lose");
-        }
+        addConter();
     }
 }
+//! Funcion para chequear si el jugador puso las letras necesarias para completar la palabra.
 function checkForWin() {
     if (playerOneLetters.toString() === playerTwoLetters.toString()) {
         alert("WIN");
     }
 }
 const keyboardDataTyped = keyboardData;
-// Función auxiliar para acceder a las propiedades de keyboardData
+//! Función auxiliar para acceder a las propiedades de keyboardData
 function getKey(keyBucle) {
     const keyName = `key${keyBucle}`;
     return keyboardDataTyped[keyName];
 }
-// Bucle para agregar los controladores de eventos
+//! Bucle para agregar los controladores de eventos
 for (let keyBucle = 1; keyBucle < 27; keyBucle++) {
     const key = getKey(keyBucle);
     if (key) {
         key.addEventListener("click", (event) => {
-            console.log(key);
+            // console.log(key);
             const letter = key.innerHTML;
             playerTwoLetters.push(letter); // Agregamos la constante `letter` al array `playerTwoWord` 
             verifyLetterFunction(letter);
@@ -118,7 +179,7 @@ for (let keyBucle = 1; keyBucle < 27; keyBucle++) {
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.key26 = exports.key25 = exports.key24 = exports.key23 = exports.key22 = exports.key21 = exports.key20 = exports.key19 = exports.key18 = exports.key17 = exports.key16 = exports.key15 = exports.key14 = exports.key13 = exports.key12 = exports.key11 = exports.key10 = exports.key9 = exports.key8 = exports.key7 = exports.key6 = exports.key5 = exports.key4 = exports.key3 = exports.key2 = exports.key1 = void 0;
-//! Le asigno a cada letra su igual en orden QWERTY y un nodo en el DOM
+//! Exportacion de constantes donde cada letra es su igual en orden QWERTY y se le vincula un nodo en el DOM
 exports.key1 = document.getElementById("Q");
 exports.key2 = document.getElementById("W");
 exports.key3 = document.getElementById("E");

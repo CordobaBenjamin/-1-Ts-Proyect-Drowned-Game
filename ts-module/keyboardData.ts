@@ -1,4 +1,4 @@
-//! Le asigno a cada letra su igual en orden QWERTY y un nodo en el DOM
+//! Exportacion de constantes donde cada letra es su igual en orden QWERTY y se le vincula un nodo en el DOM
 export const key1 = document.getElementById("Q")
 export const key2 = document.getElementById("W")
 export const key3 = document.getElementById("E")
