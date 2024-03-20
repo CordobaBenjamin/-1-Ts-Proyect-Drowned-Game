@@ -1,4 +1,3 @@
-HangGame
 HangGame es un juego de ahorcado diseñado para dos jugadores. En este juego, el jugador 1 elige una palabra, y el jugador 2 intenta adivinarla en 6 intentos. Cada vez que el jugador 2 falla, se construye gradualmente un dibujo de un stickman ahorcado. El juego está diseñado para ayudar a aprender a usar herramientas como Webpack y TypeScript.
 
 Cómo jugar
