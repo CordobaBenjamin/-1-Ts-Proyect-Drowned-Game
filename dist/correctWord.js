@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         let valor = inputData.value;
         let upperValor = valor.toUpperCase();
         localStorage.setItem("Input Value", upperValor);
-        window.location.href = 'index.html'; // Redirige a la siguiente página
+        window.location.href = 'hangManGame.html'; // Redirige a la siguiente página
     }
     startGame.addEventListener("click", (event) => {
         // Llama a nextPage() cuando ocurra el evento click en inputData

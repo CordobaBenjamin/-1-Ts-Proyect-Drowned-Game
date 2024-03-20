@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         let valor: string = inputData.value;
         let upperValor:string = valor.toUpperCase()
         localStorage.setItem("Input Value", upperValor);
-        window.location.href = 'index.html'; // Redirige a la siguiente página
+        window.location.href = 'hangManGame.html'; // Redirige a la siguiente página
     }
 
     startGame.addEventListener("click", (event) => {
