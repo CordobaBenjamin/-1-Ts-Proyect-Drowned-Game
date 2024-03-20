@@ -8,6 +8,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 20fr 1fr;
     grid-template-rows: 1fr;
+    background-color: lightblue;
 }
 
 
@@ -17,14 +18,38 @@ body {
 }
 
 .tittle-div {
-    max-width: 50vh;
+    max-width: 100vh;
     max-height: 10vh;
+    min-width: 60vh;
     margin-left: auto;
     margin-right: auto;
 }
 
 .tittle {
+    font-size: 3vh;
     max-width: 30vh;
+    max-height: 2vh;
+    min-width: 20vh;
+    min-height: 1vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tittleWin {
+    color: green;
+    font-size: 4vh;
+    max-width: 20vh;
+    max-height: 2vh;
+    min-width: 20vh;
+    min-height: 1vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tittleLose {
+    color: red;
+    font-size: 4vh;
+    max-width: 20vh;
     max-height: 2vh;
     min-width: 20vh;
     min-height: 1vh;
@@ -55,7 +80,6 @@ body {
 
 
 .keyboard {
-    background-color: rgb(204, 204, 202);
     display: grid;
     grid-row: 1fr, 1fr, 1fr;
     min-width: 10vh;

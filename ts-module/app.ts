@@ -37,7 +37,7 @@ let lenghtPlayerTwoWord = playerTwoWord.length
 //! Ciclo para crear las casillas (underscore) con los digitos de la palabra.
 for (let underScore = 0; underScore < lenghtPlayerOneWord; underScore++) {
     if (document.getElementById("divPlace") !== null) {
-        document.getElementById("divPlace")!.innerHTML += `<h5 id='removeElement${underScore}'> .__. </h5>`;
+        document.getElementById("divPlace")!.innerHTML += `<h5 id='replaceElement${underScore}'> ._. </h5>`;
     }}
 
 //! Contador para acumular cuantas veces se puede equivocar el jugador     
@@ -57,23 +57,29 @@ function verifyLetterFunction (value:string) {
         if (booleanLetter(value, playerOneLetters)) {
             console.log(value);
             
-            interface String {
-                indicesOf(character: string): number[];
-            }
-            
-            String.prototype.indicesOf = function(character: string): number[] {
-                const indices: number[] = [];
-                for (let i = 0; i < this.length; i++) {
-                    if (this.charAt(i) === character) {
-                        indices.push(i);
+                    interface String {
+                            indicesOf(character: string): number[];}
+                            String.prototype.indicesOf = function(character: string): number[] {
+                                const indices: number[] = [];
+                                for (let i = 0; i < this.length; i++) {
+                                    if (this.charAt(i) === character) {
+                                        indices.push(i); }}
+                        return indices;
+                    };
+
+                    if (localStorageValue !== null) {
+                        const indices = localStorageValue.indicesOf(value);
+                        
+                 
+                        indices.forEach(index => {
+                            const replaceId = `replaceElement${index}`;
+                            const letterToRePlace = document.getElementById(replaceId);
+                            console.log(letterToRePlace);
+                            if (letterToRePlace !== null) {
+                                letterToRePlace!.innerHTML = `<h5>${value}<h5>`;
+                                
+                        }});
                     }
-                }
-                return indices;
-            };
-                const correctWord: string|null = localStorageValue
-                if (correctWord !== null) {
-                    console.log(correctWord.indicesOf(`${value}`));
-                }
                
         } else 
         
@@ -119,14 +125,38 @@ function verifyLetterFunction (value:string) {
                     if (document.getElementById("newStep") !== null) {
                         document.getElementById("removeStep")?.remove()
                         document.getElementById("newStep")!.innerHTML += `<img src="./src/step 5.png" class="stepsStyle" id="removeStep">`}
+
+                        const winOrLoseTittleElement = document.getElementById("winOrLoseTittle");
+
+                        if (winOrLoseTittleElement !== null) {
+
+                            winOrLoseTittleElement.className = "tittleLose"
+                            winOrLoseTittleElement.innerHTML = "!PERDISTE!";
+                        }
             }} addConter()}
 }
-                
-//! Funcion para chequear si el jugador puso las letras necesarias para completar la palabra.
-function checkForWin () {  
-            if (playerOneLetters.toString() === playerTwoLetters.toString()) {
-                alert("WIN"); }}
 
+console.log(playerOneLetters.toString());
+
+//! Funcion para chequear si el jugador puso las letras necesarias para completar la palabra.
+function checkForWin() {
+    let contieneTodasLasLetras = true;
+    
+    // Verificar si todas las letras de playerOneLetters están en playerTwoLetters
+    playerOneLetters.forEach(letter => {
+        if (playerTwoLetters.indexOf(letter) === -1) {
+            contieneTodasLasLetras = false;
+            return; // Salir del bucle forEach si encontramos una letra que falta
+        }
+    });
+
+    if (contieneTodasLasLetras) {
+        const winOrLoseTittleElement = document.getElementById("winOrLoseTittle");
+        if (winOrLoseTittleElement !== null) {
+            winOrLoseTittleElement.className = "tittleWin";
+            winOrLoseTittleElement.innerHTML = "!GANASTE!";
+        }
+    }}
 
 //! Interfaz para describir la estructura de keyboardData
 interface KeyboardData {
