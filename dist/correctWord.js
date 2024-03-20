@@ -15,6 +15,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
         localStorage.setItem("Input Value", upperValor);
         window.location.href = 'hangManGame.html'; // Redirige a la siguiente página
     }
+    //! Iniciar el juego con enter
+    document.addEventListener("keypress", (event) => {
+        if (event.key === "Enter")
+            nextPage();
+    });
+    //! Iniciar el juego con click
     startGame.addEventListener("click", (event) => {
         // Llama a nextPage() cuando ocurra el evento click en inputData
         nextPage();

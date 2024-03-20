@@ -6,7 +6,6 @@ module.exports = {
     app: './ts-module/app.ts', // Archivo de entrada TypeScript "app.ts"
     correctWord: './ts-module/correctWord-Function.ts', // Archivo de entrada TypeScript "keyboardFunction.ts"
     keyboardData: './ts-module/keyboardData.ts', // Archivo de entrada TypeScript "keyboardData.ts"
-    letterBoardData: './ts-module/letterBoardData.ts'
   },
   output: {
     path: path.resolve(__dirname, 'dist'), // Directorio de salida

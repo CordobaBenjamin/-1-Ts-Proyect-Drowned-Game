@@ -57,7 +57,9 @@ body {
     margin-right: auto;
 }
 
+
 .player-two {
+    color: red;
     max-width: 15vh;
     max-height: 2vh;
     min-width: 9vh;
@@ -94,15 +96,22 @@ body {
 }
 
 .key {
+    cursor: pointer;
     height: 1vmin;
     width: 1vmin;
-    background-color: gray;
+    background-color: rgb(171, 223, 240);
     padding: 0.5vmin;
-    padding: 1vmax;
-    border: 1px;
-    margin: 2px;
+    padding: 1.5vmax;
+    box-shadow: 10px;
+    margin: 3px;
+}
+
+.key:hover {
+    transition: 0.6s;
+    background-color: rgb(152, 216, 238);
 
 }
+
 
 .correct-word {
     display: flex;
